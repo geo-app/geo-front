@@ -1,23 +1,24 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
-  <header>
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <section>
+    <header>
+      <div class="wrapper">
+        <nav>
+          <Navbar />
+        </nav>
+      </div>
+    </header>
+    <div class="container-center">
+    <RouterView />
     </div>
-  </header>
-
-  <RouterView />
+  </section>
 </template>
 
-<style>
-@import '@/assets/base.css';
 
+<script setup>
+import { RouterLink, RouterView } from "vue-router";
+import Navbar from "@/components/Navbar.vue";
+</script>
+
+<style>
+@import "@/assets/base.css";
 </style>

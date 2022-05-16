@@ -1,29 +1,12 @@
-# geolocalisation-front
+Projet Todo B3 Informatique
 
-This template should help get you started developing with Vue 3 in Vite.
+Vue3
+Vite
+Vue-routeur
+Pinia
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+Start the project
+npm init
 npm run dev
-```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+2021-2022
