@@ -1,4 +1,5 @@
 <template>
+    <div class="container">
   <section>
     <header>
       <div class="wrapper">
@@ -11,6 +12,7 @@
     <RouterView />
     </div>
   </section>
+  </div>
 </template>
 
 
