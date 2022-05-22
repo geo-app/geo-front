@@ -4,7 +4,7 @@ import { environment } from '../../environment/environment';
 
 export const entityStore = defineStore("entityStore", {
   state: () => ({
-    entities: [],
+    entities: Object,
   }),
 
   getters: {
@@ -15,20 +15,22 @@ export const entityStore = defineStore("entityStore", {
   },
   actions: {
 
-
     async getEntitiesByFilters(filters: []) {
-      await axios.get(environment.WEP_API_URL+ "/communes", { params: filters })
-      .then(function (response) {
-        // handle success
-        console.log(response?.data?.body?.communes.length);
-        return response?.data?.body?.communes.length;
+      return await axios.get(environment.WEP_API_URL+ "/communes", { params: filters })
+      // .then(function (response) {
+      //   // handle success
+      //   // console.log(response?.data?.body?.communes.length);
+      //   // this.entities = response?.data?.body?.communes;
+      //   console.log(response?.data?.body?.communes.length);
+        
+      //   return response?.data?.body?.communes.length;
          
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-        return "Error during fetching"
-      })
+      // })
+      // .catch(function (error) {
+      //   // handle error
+      //   console.log(error);
+      //   return "Error during fetching"
+      // })
     }
   }
 });
