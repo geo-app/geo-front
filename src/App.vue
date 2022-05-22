@@ -3,24 +3,34 @@
   <section>
     <header>
       <div class="wrapper">
-        <nav>
           <Navbar />
-        </nav>
       </div>
     </header>
     <div class="container-center">
-    <RouterView />
+      <RouterView />
     </div>
   </section>
   </div>
 </template>
 
 
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
+<script>
+import { defineComponent } from "vue";
 import Navbar from "@/components/Navbar.vue";
+
+export default defineComponent({
+  name: "App",
+  components: {
+    Navbar,
+  },
+
+  // data() {
+  //   return {
+  //   };
+  // },
+});
 </script>
 
-<style>
+<style lang="scss">
 @import "@/assets/base.css";
 </style>
