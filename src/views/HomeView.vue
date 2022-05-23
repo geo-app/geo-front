@@ -1,17 +1,14 @@
 <template>
   <body>
-      <div class="container">
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" style="width:200px" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </div>
+    <div class="miniform">
+      <input type="search" placeholder="Search" aria-label="Search" v-on:keyup="searchEntities">
+    </div>
 
-  <div>
-    <pre v-for="entity in entities" :key="entity.nom">
-      {{ entity }}
-    </pre>
-  </div>
+    <div>
+      <pre v-for="entity in entities" :key="entity.nom">
+        {{ entity }}
+      </pre>
+    </div>
   </body>
 </template>
 
@@ -29,9 +26,9 @@ export default defineComponent({
  setup() {
     const sEntity = entityStore();
     const { getEntities } = storeToRefs(sEntity);
-    const { getEntitiesByFilters } = sEntity;
+    const { getEntitiesByFilters, getEntitiesByTerms } = sEntity;
 
-    return { getEntities, getEntitiesByFilters };
+    return { getEntities, getEntitiesByFilters, getEntitiesByTerms };
   },
 
   data() {
@@ -42,15 +39,23 @@ export default defineComponent({
 
   async mounted() {
     // {"order": "nom:desc"}).
-    const response = await this.getEntitiesByFilters().then(res => res = res.data.body.communes);
+    let res = await this.getEntitiesByFilters().then(res => res = res.data.body.communes);
     // console.log(response);
-    if (response) {
-       this.entities = response;
+    if (res) {
+       this.entities = res;
     }
 
   },
 
   methods: {
+    async searchEntities(e) {
+      console.log(e.target.value);
+      let fff = await this.getEntitiesByTerms({"term": e.target.value}).then(res => res = res.data.body.communes)
+      if (fff) {
+        console.log(fff);
+        this.entities = fff;
+      }
+    }
   },
 
 
@@ -60,5 +65,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss"> 
-
+.miniform {
+  text-align: center;
+  margin: 20px 0;
+}
 </style>

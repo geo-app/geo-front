@@ -31,6 +31,12 @@ export const entityStore = defineStore("entityStore", {
       //   console.log(error);
       //   return "Error during fetching"
       // })
+    },
+
+
+    async getEntitiesByTerms(terms: String) {
+      return await axios.get(environment.WEP_API_URL+ "/search", { params: terms })
     }
+
   }
 });
