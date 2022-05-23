@@ -49,13 +49,11 @@ export default defineComponent({
 
   methods: {
     async searchEntities(e) {
-      console.log(e.target.value);
-      let fff = await this.getEntitiesByTerms({"term": e.target.value}).then(res => res = res.data.body.communes)
-      if (fff) {
-        console.log(fff);
-        this.entities = fff;
+      let res = await this.getEntitiesByTerms({"term": e.target.value}).then(res => res = res.data.body.communes)
+      if (res) {
+        this.entities = res;
       }
-    }
+    },
   },
 
 
