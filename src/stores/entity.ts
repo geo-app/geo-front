@@ -36,7 +36,11 @@ export const entityStore = defineStore("entityStore", {
 
     async getEntitiesByTerms(terms: String) {
       return await axios.get(environment.WEP_API_URL+ "/search", { params: terms })
-    }
+    },
 
+
+    async getEntitiesByPopulation(params: { min: Number, max: Number, direction: String}) {
+      return await axios.get(environment.WEP_API_URL+ "/communes-by-population", { params: params })
+    }
   }
 });
